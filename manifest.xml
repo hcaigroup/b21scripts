@@ -1,0 +1,14 @@
+<package>
+  <description brief="b21scripts">
+
+     b21scripts
+
+  </description>
+  <author></author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/b21scripts</url>
+
+</package>
+
+
