@@ -2,9 +2,9 @@
   <node name="b21" pkg="rflex" type="b21" output="screen">
     <param name="port" value="/dev/ttyR3" />
   </node>
-  <!--node name="sicklms" pkg="sicktoolbox_wrapper" type="sicklms" output="screen">
+  <node name="sicklms" pkg="sicktoolbox_wrapper" type="sicklms" output="screen">
     <param name="port" value="/dev/ttyUSB0" />
     <param name="baud" value="500000" />
-  </node-->
+  </node>
 </launch>
 
