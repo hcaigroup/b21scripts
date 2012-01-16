@@ -2,11 +2,11 @@
 
 <include file="$(find b21scripts)/launch/rflex.launch"/>
 
-<node name="map_server" pkg="map_server" type="map_server" args="$(find b21scripts)/map/garching_lab.yaml"/> 
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find b21scripts)/maps/garching_lab.yaml"/>
 
-<node pkg="amcl" type="amcl" name="amcl">
-  <param name="base_frame_id" value="base"/>
-</node>
+  <node pkg="amcl" type="amcl" name="amcl">
+    <param name="base_frame_id" value="base"/>
+  </node>
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
     <remap from="/base_scan" to="/scan"/>
@@ -15,12 +15,12 @@
     <param name="base_frame_id" value="base"/>
     <param name="footprint_padding" value="0.01" />
     <param name="controller_frequency" value="10.0" />
-    <param name="controller_patience" value="100.0" /> 
-    <param name="planner_frequency" value="2.0" /> 
+    <param name="controller_patience" value="100.0" />
+    <param name="planner_frequency" value="2.0" />
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
     <rosparam file="$(find b21scripts)/launch/b21_move_base/dwa_planner_ros.yaml" command="load" />
     <!-- <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />  -->
-   
+
     <rosparam file="$(find b21scripts)/launch/b21_move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find b21scripts)/launch/b21_move_base/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find b21scripts)/launch/b21_move_base/local_costmap_params.yaml" command="load" />

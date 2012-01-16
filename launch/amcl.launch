@@ -1,6 +1,6 @@
 <launch>
 
-<node name="map_server" pkg="map_server" type="map_server" args="$(find b21scripts)/map/garching_lab.yaml"/> 
+<node name="map_server" pkg="map_server" type="map_server" args="$(find b21scripts)/maps/garching_lab.yaml"/>
 
 <node pkg="amcl" type="amcl" name="amcl">
   <param name="base_frame_id" value="base"/>
