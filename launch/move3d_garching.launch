@@ -3,7 +3,7 @@
         pkg="human_nav_node"
         type="hanp_node"
         output="screen"
-        args="-f $(find laas_assets)/laas-assets/KiboKitchen/garching.p3d -s $(find laas_assets)/laas-assets/KiboKitchen/SCENARIO/simple.sce -n"
+        args="-f $(find laas_assets)/laas-assets/KiboKitchen/garching.p3d -s $(find laas_assets)/laas-assets/KiboKitchen/SCENARIO/simple.sce"
         />
 </launch>
 
