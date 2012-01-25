@@ -1,0 +1,5 @@
+<launch>
+
+	<node name="publish_kinect_frame" pkg="b21scripts" type="publish_kinect_frame.py"/>
+
+</launch>
