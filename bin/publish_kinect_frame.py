@@ -12,7 +12,7 @@ if __name__ == '__main__':
     tf_listener = tf.TransformListener()
     pub = rospy.Publisher("/Human/Pose", geometry_msgs.msg.PoseStamped)
     humanpose = geometry_msgs.msg.PoseStamped()
-
+    humanfound = False
     rate = rospy.Rate(10.0)
     while not rospy.is_shutdown():
         now = rospy.Time.now()
@@ -21,7 +21,7 @@ if __name__ == '__main__':
                          now,
                          "map",
                          "camera_depth_optical_frame")
-
+        # sleep before lookuing up transform
         rate.sleep()
 
         try:
@@ -39,9 +39,14 @@ if __name__ == '__main__':
 
             pub.publish(humanpose)
 
+            humanfound = True
         except tf.LookupException, e:
-            rospy.logerr("LookupException: tf lookup failed from %s to %s: %s", "map", "neck_1", e)
+            if humanfound == True:
+                rospy.logerr("LookupException: tf lookup failed from %s to %s: %s", "map", "neck_1", e)
+            humanfound = False
         except tf.ExtrapolationException, e:
             rospy.logerr("ExtrapolationException: tf lookup failed from %s to %s: %s", "map", "neck_1", e)
         except tf.Exception, e:
-            rospy.logerr("tf lookup failed from %s to %s: %s", "map", "neck_1", e)
+            if humanfound == True:
+                rospy.logerr("tf lookup failed from %s to %s: %s", "map", "neck_1", e)
+            humanfound = False
