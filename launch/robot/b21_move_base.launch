@@ -1,6 +1,6 @@
 <launch>
 
-<include file="$(find b21scripts)/launch/rflex.launch"/>
+<include file="$(find b21scripts)/launch/robot/rflex.launch"/>
 
   <node name="map_server" pkg="map_server" type="map_server" args="$(find b21scripts)/maps/garching_lab.yaml"/>
 
