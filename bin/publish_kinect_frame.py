@@ -16,11 +16,18 @@ if __name__ == '__main__':
     rate = rospy.Rate(20.0)
     while not rospy.is_shutdown():
         now = rospy.Time.now()
-        br.sendTransform((0, 4.15, -0.92),
-                         tf.transformations.quaternion_from_euler(0, 0, -1.57079633),
-                         now,
-                         "map",
-                         "camera_depth_optical_frame")
+        br.sendTransform(
+            (0, 4.6, -0.92),
+            tf.transformations.quaternion_from_euler(0, 0, -1.57079633),
+            now,
+            "map",
+            "camera_base_frame")
+        br.sendTransform(
+            (0, 0.0, 00.),
+            tf.transformations.quaternion_from_euler(0, 0, -0.785398163),
+            now,
+            "camera_base_frame",
+            "camera_depth_optical_frame")
         # sleep before lookuing up transform
         rate.sleep()
 
