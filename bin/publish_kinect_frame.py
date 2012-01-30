@@ -13,7 +13,7 @@ if __name__ == '__main__':
     pub = rospy.Publisher("/Human/Pose", geometry_msgs.msg.PoseStamped)
     humanpose = geometry_msgs.msg.PoseStamped()
     humanfound = False
-    rate = rospy.Rate(10.0)
+    rate = rospy.Rate(20.0)
     while not rospy.is_shutdown():
         now = rospy.Time.now()
         br.sendTransform((0, 4.15, -0.92),
