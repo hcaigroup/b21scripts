@@ -33,10 +33,11 @@ if __name__ == '__main__':
 
         try:
             tf_listener.waitForTransform("map", "neck_1", now - rospy.Duration(0.1), rospy.Duration(0.2))
-            ((x,y,z), (ox, oy, oz, ow)) = tf_listener.lookupTransform("/map", "/neck_1", now)
+            ((x,y,z), (ox, oy, oz, ow)) = tf_listener.lookupTransform("/map", "/neck_1", rospy.Time(0))
 
             # TODO: Need to do sensor fusion from multiple kinects to get human pose for multiple humans (navigation ROS interface can only handle 1 human for now)
 
+            humanpose.header.frame_id = 'map'
             humanpose.pose.position.x = x
             humanpose.pose.position.y = y
             humanpose.pose.orientation.x = ox
